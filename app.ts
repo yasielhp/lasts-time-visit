@@ -1,5 +1,5 @@
 import { Hono } from "https://deno.land/x/hono@v3.11.7/mod.ts"
-import { serveStatic } from "https://deno.land/x/hono@v3.11.7/middleware.ts"
+import { cors, serveStatic } from "https://deno.land/x/hono@v3.11.7/middleware.ts"
 import { streamSSE } from "https://deno.land/x/hono@v3.11.7/helper/streaming/index.ts"
 
 
@@ -13,7 +13,7 @@ interface LastVisit {
   flag: string
 
 }
-
+app.use(cors())
 app.get('/', serveStatic({ path:'./index.html' }))
 
 
